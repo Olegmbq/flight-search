@@ -1,0 +1,59 @@
+.load-more-button {
+  display: block;
+  margin: 20px auto;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #5d2eff, #b388ff);
+  box-shadow: 0 0 15px rgba(179, 136, 255, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  animation: buttonPulse 3.5s ease-in-out infinite;
+}
+
+/* 🟣 Hover и актив */
+.load-more-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(179, 136, 255, 0.8),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.load-more-button:active {
+  transform: scale(0.96) translateY(1px);
+  box-shadow: 0 0 12px rgba(179, 136, 255, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.25);
+  transition: transform 0.05s ease, box-shadow 0.1s ease;
+}
+
+/* ✨ Вспышка */
+.load-more-button.clicked {
+  animation: flashGlow 0.4s ease;
+}
+
+/* 💜 Пульс */
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(179, 136, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(179, 136, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(179, 136, 255, 0.3);
+  }
+}
+
+@keyframes flashGlow {
+  0% {
+    box-shadow: 0 0 25px rgba(179, 136, 255, 0.9),
+      inset 0 0 25px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(179, 136, 255, 0.4),
+      inset 0 0 10px rgba(255, 255, 255, 0.05);
+  }
+}

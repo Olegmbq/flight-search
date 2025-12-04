@@ -1,0 +1,105 @@
+.sort-tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.sort-tab {
+  position: relative;
+  flex: 1;
+  background: linear-gradient(135deg, #321b68, #5123a9);
+  border: 1px solid rgba(179, 136, 255, 0.4);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 12px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+  animation: buttonPulse 3.5s ease-in-out infinite;
+  box-shadow: 0 0 12px rgba(179, 136, 255, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(179, 136, 255, 0.8),
+      inset 0 0 15px rgba(255, 255, 255, 0.1);
+  }
+  &:active {
+    transform: scale(0.96) translateY(1px);
+    box-shadow: 0 0 12px rgba(179, 136, 255, 0.4),
+      inset 0 0 20px rgba(255, 255, 255, 0.25);
+    transition: transform 0.05s ease, box-shadow 0.1s ease;
+  }
+
+  /* 💫 Световой отклик при нажатии */
+  .sort-tab:active {
+    transform: scale(0.96) translateY(1px);
+    box-shadow: 0 0 12px rgba(179, 136, 255, 0.4),
+      inset 0 0 20px rgba(255, 255, 255, 0.25);
+    transition: transform 0.05s ease, box-shadow 0.1s ease;
+  }
+
+  .sort-tab.clicked {
+    animation: flashGlow 0.4s ease;
+  }
+
+  /* ✨ Вспышка света */
+  @keyframes flashGlow {
+    0% {
+      box-shadow: 0 0 25px rgba(179, 136, 255, 0.9),
+        inset 0 0 25px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+      box-shadow: 0 0 12px rgba(179, 136, 255, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  &.active {
+    animation: none;
+    background: linear-gradient(135deg, #5d2eff, #b388ff);
+    box-shadow: 0 0 30px rgba(179, 136, 255, 0.9),
+      inset 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  /* 🌌 отражение под кнопкой */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(179, 136, 255, 0.35),
+      transparent 70%
+    );
+    filter: blur(4px);
+    opacity: 0.6;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::after {
+    opacity: 0.9;
+  }
+}
+
+/* 💫 Анимация мягкого пульса */
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(179, 136, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(179, 136, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(179, 136, 255, 0.3);
+  }
+}

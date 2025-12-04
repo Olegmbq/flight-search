@@ -1,0 +1,134 @@
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #1b0038, #0d0020);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  z-index: 9999;
+  animation: fadeOut 1s ease-in-out 2.5s forwards;
+
+  .loading-content {
+    text-align: center;
+    animation: fadeIn 1.2s ease-in-out;
+
+    .logo {
+      font-size: 60px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: #b388ff;
+      margin-top: 10px;
+      letter-spacing: 2px;
+    }
+
+    h3 {
+      font-size: 18px;
+      color: #8a6cff;
+      font-weight: 400;
+      margin-bottom: 20px;
+      letter-spacing: 1.5px;
+    }
+
+    .loading-bar {
+      width: 200px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      margin: 0 auto;
+      overflow: hidden;
+
+      .progress {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #5d2eff, #b388ff);
+        animation: load 2.5s ease-in-out forwards;
+      }
+    }
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes load {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sound-start {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #5d2eff, #b388ff);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 0 15px rgba(179, 136, 255, 0.6);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 0 25px rgba(179, 136, 255, 0.9);
+  }
+
+  &.fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.loading-screen {
+  opacity: 1;
+  transition: opacity 1s ease;
+  &.fade-out {
+    opacity: 0;
+  }
+}

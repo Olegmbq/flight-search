@@ -1,0 +1,330 @@
+// main styles
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: #f9f9ff;
+}
+
+body {
+  background: #f9f9ff;
+  color: #222;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #5d2eff;
+  margin-top: 20px;
+}
+
+/* 🌌 Плавное появление интерфейса после заставки */
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.all-loaded {
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 30px 0;
+  color: #b388ff;
+  text-shadow: 0 0 8px rgba(179, 136, 255, 0.5);
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards,
+    neonGlow 2.5s ease-in-out infinite alternate, pulse 3s ease-in-out infinite;
+  transition: all 0.4s ease;
+}
+
+/* 💡 Отражённый отблеск под текстом */
+.all-loaded::after {
+  content: "Все билеты загружены 💜";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) scaleY(-1);
+  opacity: 0.25;
+  color: #b388ff;
+  filter: blur(3px);
+  text-shadow: 0 0 8px rgba(179, 136, 255, 0.6);
+  animation: reflectionPulse 3s ease-in-out infinite;
+}
+
+/* ✨ Плавное появление */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🌈 Неоновое свечение */
+@keyframes neonGlow {
+  0% {
+    color: #b388ff;
+    text-shadow: 0 0 5px #b388ff, 0 0 10px #9d6bff, 0 0 20px #7f3dff,
+      0 0 40px rgba(127, 61, 255, 0.6);
+  }
+  100% {
+    color: #d2b6ff;
+    text-shadow: 0 0 10px #d2b6ff, 0 0 20px #b388ff, 0 0 30px #9d6bff,
+      0 0 60px rgba(179, 136, 255, 0.9);
+  }
+}
+
+/* 💫 Пульсирующее дыхание */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 🌌 Лёгкое движение отражения */
+@keyframes reflectionPulse {
+  0% {
+    opacity: 0.15;
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.3;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 0.15;
+    filter: blur(4px);
+  }
+}
+.app {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .filters {
+    order: -1; /* фильтр вверх */
+    width: 100%;
+  }
+
+  .content {
+    align-items: center;
+  }
+}
+
+h1 {
+  text-align: center;
+  color: #6b38ff;
+  margin-bottom: 12px;
+}
+
+.all-loaded {
+  text-align: center;
+  color: #b388ff;
+  margin-top: 12px;
+}
+
+/* 📱 адаптив */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .sidebar {
+    order: -1;
+    width: 100%;
+  }
+}
+
+.filters-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.all-loaded {
+  text-align: center;
+  color: #b388ff;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+/* 📱 Адаптив для телефонов */
+@media (max-width: 768px) {
+  .container-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .filters-column {
+    order: -1;
+    width: 100%;
+  }
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  align-items: start;
+}
+
+.filters-panel {
+  background: linear-gradient(180deg, #1e093b 0%, #2d1363 50%, #15063a 100%);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(93, 46, 255, 0.3);
+  color: #fff;
+  padding: 20px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.tickets-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tickets-area h1 {
+  text-align: center;
+  color: #5d2eff;
+  margin-bottom: 12px;
+}
+
+.all-loaded {
+  text-align: center;
+  color: #b388ff;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+/* 📱 адаптив */
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .filters-panel {
+    position: static;
+    width: 100%;
+  }
+}
+/* === 🩵 Основной контейнер приложения === */
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: #f9f9ff;
+  overflow-x: hidden; /* 🔒 убирает горизонтальный скролл */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* === 💜 Сетка страниц: фильтр слева, билеты справа === */
+.main-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  align-items: start;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* === 🎛️ Левая панель фильтрации === */
+.filters-panel {
+  background: linear-gradient(180deg, #1e093b 0%, #2d1363 50%, #15063a 100%);
+  border-radius: 20px; /* ✅ радиус со всех сторон */
+  box-shadow: 0 0 25px rgba(93, 46, 255, 0.3);
+  color: #fff;
+  padding: 20px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* === 🎫 Правая зона с билетами === */
+.tickets-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* === 📱 Адаптив: телефоны и планшеты === */
+@media (max-width: 768px) {
+  .main-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 16px;
+  }
+
+  .filters-panel {
+    position: static;
+    width: 100%;
+    max-width: 92%;
+    margin: 0 auto 16px;
+    border-radius: 20px; /* ✅ скругляем со всех сторон */
+    box-shadow: 0 0 20px rgba(93, 46, 255, 0.35);
+    padding: 18px;
+    height: auto;
+    overflow: hidden;
+    transform: none !important;
+  }
+
+  .tickets-area {
+    width: 100%;
+    max-width: 600px;
+  }
+}
